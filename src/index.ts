@@ -6,9 +6,7 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT;
 
-app.get("/", (req: Request, res: Response) => {
-  res.status(200).send("<h3>Task manger API with TS");
-});
+app.use(express.static("./src/views"));
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at https://localhost:${port}`);
