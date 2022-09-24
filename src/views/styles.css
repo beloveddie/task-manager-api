@@ -7,3 +7,39 @@
   padding: 0px;
   box-sizing: border-box;
 }
+
+html {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: rgb(14, 14, 14);
+  color: white;
+}
+
+main {
+  /* background-color: rgb(26, 29, 29); */
+  padding: 20px;
+}
+
+main h1,
+h2 {
+  line-height: 1.3em;
+}
+
+main h2 {
+  font-size: small;
+}
+
+main a button {
+  letter-spacing: 0.07em;
+  margin-top: 1.5em;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 1em;
+}
