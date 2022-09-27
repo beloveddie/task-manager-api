@@ -1,32 +1,17 @@
 import { Router } from "express";
+import {
+  createTask,
+  deleteTask,
+  getAllTasks,
+  getTask,
+  updateTask,
+} from "../controllers/task-controller";
 
 const router = Router();
 
-router
-  .route("/")
-  .get((req, res) => {
-    console.log("Get route");
-    res.send("Get route");
-  })
-  .post((req, res) => {
-    console.log("Post route");
-    res.send("Post route");
-  });
+router.route("/").get(getAllTasks).post(createTask);
 
 // add routes with parameters
-router
-  .route("/:id")
-  .get((req, res) => {
-    console.log("Get specific route");
-    res.send("Get specific route");
-  })
-  .patch((req, res) => {
-    console.log("Patch route");
-    res.send("Patch route");
-  })
-  .delete((req, res) => {
-    console.log("Delete route");
-    res.send("Delete route");
-  });
+router.route("/:id").get(getTask).patch(updateTask).delete(deleteTask);
 
 export default router;
