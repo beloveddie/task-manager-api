@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import connectDB from "./helpers/connectToDb";
+import taskRouter from "./routes/task-router";
 
 dotenv.config();
 
@@ -9,6 +10,10 @@ const port = process.env.PORT;
 
 app.use(express.static("./src/views"));
 
+// setup routes
+app.use("/api/v1/tasks", taskRouter);
+
+// Using Immediately Invoked Function Expression {IIFE}
 (async () => {
   // connect to database
   try {
