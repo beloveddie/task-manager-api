@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { Schema, model } from "mongoose";
 
 const TaskSchema = new Schema({
   title: String,
@@ -9,3 +9,5 @@ const TaskSchema = new Schema({
   doing: Boolean,
   done: Boolean,
 });
+
+export const Task = model("Task", TaskSchema);
