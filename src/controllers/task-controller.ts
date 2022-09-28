@@ -7,9 +7,10 @@ const getAllTasks = async (req: Request, res: Response) => {
   res.status(200).json({ success: true, tasks });
 };
 
-const createTask = (req: Request, res: Response) => {
-  console.log("Create route");
-  res.send("Create route");
+const createTask = async (req: Request, res: Response) => {
+  const task = await Task.create(req.body);
+  if (!task) throw new Error("Task creation didn't go through.");
+  res.status(201).json({ success: true, task });
 };
 
 const updateTask = (req: Request, res: Response) => {
