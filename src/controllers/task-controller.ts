@@ -23,9 +23,11 @@ const updateTask = async (req: Request, res: Response) => {
   res.status(200).json({ success: true, updatedTask });
 };
 
-const deleteTask = (req: Request, res: Response) => {
-  console.log("Delete task route");
-  res.send("Delete task route");
+const deleteTask = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const deletedTask = await Task.findByIdAndDelete(id);
+  if (!deletedTask) throw new Error("Task deletion didn't go through.");
+  res.status(200).json({ success: true, deletedTask });
 };
 
 const getTask = (req: Request, res: Response) => {
