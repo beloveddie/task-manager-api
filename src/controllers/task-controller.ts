@@ -30,9 +30,11 @@ const deleteTask = async (req: Request, res: Response) => {
   res.status(200).json({ success: true, deletedTask });
 };
 
-const getTask = (req: Request, res: Response) => {
-  console.log("Get specific route");
-  res.send("Get specific route");
+const getTask = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const task = await Task.findById(id);
+  if (!task) throw new Error("No task found with such ID.");
+  res.status(200).json({ success: true, task });
 };
 
 export { getAllTasks, createTask, updateTask, deleteTask, getTask };
