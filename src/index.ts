@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
+import "express-async-errors";
 import connectDB from "./helpers/connectToDB";
 import taskRouter from "./routes/task-router";
 
