@@ -8,6 +8,9 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT;
 
+// use express json middleware
+app.use(express.json());
+
 app.use(express.static("./src/views"));
 
 // setup routes
