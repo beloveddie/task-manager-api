@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
-import connectDB from "./helpers/connectToDb";
+import connectDB from "./helpers/connectToDB";
 import taskRouter from "./routes/task-router";
 
 dotenv.config();
