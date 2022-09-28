@@ -19,7 +19,7 @@ const updateTask = async (req: Request, res: Response) => {
     new: true,
     runValidators: true,
   });
-  if (!updatedTask) throw new Error("Task update didn't go through");
+  if (!updatedTask) throw new Error("Task update didn't go through.");
   res.status(200).json({ success: true, updatedTask });
 };
 
