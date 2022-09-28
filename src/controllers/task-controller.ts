@@ -3,7 +3,7 @@ import { Task } from "../models/Task";
 
 const getAllTasks = async (req: Request, res: Response) => {
   const tasks = await Task.find({});
-  if (!tasks) throw new Error("Unable to get all tasks");
+  if (!tasks) throw new Error("Unable to get all tasks.");
   res.status(200).json({ success: true, tasks });
 };
 
