@@ -13,9 +13,14 @@ const createTask = async (req: Request, res: Response) => {
   res.status(201).json({ success: true, task });
 };
 
-const updateTask = (req: Request, res: Response) => {
-  console.log("Update task route");
-  res.send("Update task route");
+const updateTask = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const updatedTask = await Task.findByIdAndUpdate(id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+  if (!updatedTask) throw new Error("Task update didn't go through");
+  res.status(200).json({ success: true, updatedTask });
 };
 
 const deleteTask = (req: Request, res: Response) => {
