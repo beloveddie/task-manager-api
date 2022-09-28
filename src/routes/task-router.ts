@@ -12,6 +12,6 @@ const router = Router();
 router.route("/").get(getAllTasks).post(createTask);
 
 // add routes with parameters
-router.route("/:id").get(getTask).patch(updateTask).delete(deleteTask);
+router.route("/:id").patch(updateTask).delete(deleteTask).get(getTask);
 
 export default router;
