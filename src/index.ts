@@ -7,7 +7,7 @@ import taskRouter from "./routes/task-router";
 dotenv.config();
 
 const app: Express = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 8000;
 
 // use express json middleware
 app.use(express.json());
